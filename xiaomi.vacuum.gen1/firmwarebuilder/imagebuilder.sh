@@ -51,7 +51,7 @@ Options:
   -k, --authorized-keys     path to authorized-keys file
   -t, --timezone            timezone to be used in vacuum
   --disable-xiaomi          disable xiaomi servers using hosts file
-  --enable-minhttp          enable minimalistiv http server (:80)
+  --enable-minhttp          enable minimalistic http server (:80)
 
 Report bugs to: https://github.com/dgiese/dustcloud/issues
 EOF
@@ -202,6 +202,11 @@ echo "$TIMEZONE" > ./etc/timezone
 # Replace chinese soundfiles with english soundfiles
 cp ../sounds/*.wav ./opt/rockrobo/resources/sounds/prc/
 
+echo ""
+echo "now you have the possibility to change the image mounted at ./image as you like."
+read -p "after you are done press any key to continue and finish building the image."
+echo ""
+sleep 5
 cd ..
 umount image
 rm -rf image
