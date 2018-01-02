@@ -1,3 +1,22 @@
 #!/bin/bash
-while true; do { echo -e 'HTTP/1.1 200 OK\r\n'; sh /root/minimal-http-server-content.sh; } | nc -l 80; done
-exit 0
+
+echo "************ minimalistic http server ***************\n"
+
+echo "Token:"
+printf $(cat /mnt/data/miio/device.token) | xxd -p
+echo "\n"
+
+echo "System Details (/etc/OS_VERSION):"
+cat /etc/OS_VERSION
+echo "\n"
+
+echo "Resources (vmstat -S M):"
+vmstat -S M
+echo "\n"
+
+echo "Interfaces (ifconfig):"
+ifconfig
+echo "\n"
+
+echo "Running processes (ps -aux):"
+ps -aux
